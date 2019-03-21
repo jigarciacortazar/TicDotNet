@@ -14,5 +14,7 @@ Based on pytic, thanks to the author Dan Tyrrell.
 ### References:
 
 https://gitlab.com/codebuk/pytic
+
 http://libusbdotnet.sourceforge.net/V2/Index.html
+
 https://github.com/pololu/pololu-tic-software
