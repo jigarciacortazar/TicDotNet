@@ -50,6 +50,7 @@
             this.numericUpDownJogSpeed = new System.Windows.Forms.NumericUpDown();
             this.checkBoxJogLeft = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonEnergize = new System.Windows.Forms.Button();
             this.groupBoxGOTO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPosition)).BeginInit();
@@ -72,9 +73,9 @@
             // 
             // buttonHome
             // 
-            this.buttonHome.Location = new System.Drawing.Point(430, 30);
+            this.buttonHome.Location = new System.Drawing.Point(400, 14);
             this.buttonHome.Name = "buttonHome";
-            this.buttonHome.Size = new System.Drawing.Size(75, 23);
+            this.buttonHome.Size = new System.Drawing.Size(94, 23);
             this.buttonHome.TabIndex = 1;
             this.buttonHome.Text = "HOME";
             this.buttonHome.UseVisualStyleBackColor = true;
@@ -289,11 +290,22 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // buttonEnergize
+            // 
+            this.buttonEnergize.Location = new System.Drawing.Point(400, 43);
+            this.buttonEnergize.Name = "buttonEnergize";
+            this.buttonEnergize.Size = new System.Drawing.Size(94, 23);
+            this.buttonEnergize.TabIndex = 6;
+            this.buttonEnergize.Text = "DEENERGIZE";
+            this.buttonEnergize.UseVisualStyleBackColor = true;
+            this.buttonEnergize.Click += new System.EventHandler(this.buttonEnergize_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 592);
+            this.Controls.Add(this.buttonEnergize);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -342,6 +354,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownJogSpeed;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label labelVars;
+        private System.Windows.Forms.Button buttonEnergize;
     }
 }
 

@@ -35,11 +35,6 @@ class tic {
     const int USB_REQUEST_GET_DESCRIPTOR = 6;
     const int USB_DESCRIPTOR_TYPE_STRING = 3;
     const int TIC_VENDOR_ID = 8187;
-    const int TIC_PRODUCT_ID_T825 = 179;
-    const int TIC_PRODUCT_ID_T834 = 181;
-    const int TIC_PRODUCT_ID_T500 = 189;
-    const int TIC_PRODUCT_ID_N825 = 0x00C3;
-    const int TIC_PRODUCT_ID_T249 = 0x00C9;
     const int TIC_FIRMWARE_MODIFICATION_STRING_INDEX = 4;
 
     const int TIC_RESPONSE_DEENERGIZE = 0;
@@ -300,7 +295,16 @@ class tic {
     const int TIC_INPUT_NULL = 65535;
     const int TIC_CONTROL_PIN_COUNT = 5;
 
-    public enum ERRORS
+
+    public enum PRODUCT_ID
+    {
+        T825 = 179,
+        T834 = 181,
+        T500 = 189,
+        N825 = 0x00C3,
+        T249 = 0x00C9,
+    }
+public enum ERRORS
     {
         INTENTIONALLY_DEENERGIZED = 0,
         MOTOR_DRIVER_ERROR = 1,
@@ -359,12 +363,12 @@ class tic {
         serial = 0;
     }
 
-    public bool open(int prod_id= TIC_PRODUCT_ID_T825, String serial = "")
+    public bool open(PRODUCT_ID prod_id = PRODUCT_ID.T825, String serial = "")
     {
         init_defaults();
         try
         {
-            UsbDeviceFinder MyUsbFinder = new UsbDeviceFinder(TIC_VENDOR_ID, prod_id);
+            UsbDeviceFinder MyUsbFinder = new UsbDeviceFinder(TIC_VENDOR_ID, (int)prod_id);
 
             // Find and open the usb device.
             MyUsbDevice = UsbDevice.OpenUsbDevice(MyUsbFinder);
@@ -863,7 +867,7 @@ class tic {
     int  poll_period = 10;
     public variables vars { get; set; }
     public status_variables status_vars { get; set; }
-    int product_id;
+    PRODUCT_ID product_id;
 
 
 }

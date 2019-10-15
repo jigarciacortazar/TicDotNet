@@ -20,6 +20,7 @@ namespace WindowsFormsApplication3
             buttonHome.Enabled = m_conected;
             checkBoxJogLeft.Enabled = m_conected;
             checkBoxJogRigth.Enabled = m_conected;
+            buttonEnergize.Enabled = m_conected;
             m_tic = new tic();
         }
 
@@ -30,16 +31,16 @@ namespace WindowsFormsApplication3
             {
                 if (!m_conected)
                 {
-                    m_conected=m_tic.open();
+                    m_conected = m_tic.open(tic.PRODUCT_ID.T249);
                     m_tic.reinitialize();
-                    m_tic.reset();
+//                    m_tic.reset();
                     m_tic.energize();
                     m_tic.clear_driver_error();
 
-                    m_tic.set_max_accel(100000);
-                    m_tic.set_max_decel(100000);
-                    m_tic.set_max_speed(50000000);
-                    m_tic.set_starting_speed(2000000);
+                    //m_tic.set_max_accel(100000);
+                    //m_tic.set_max_decel(100000);
+                    //m_tic.set_max_speed(50000000);
+                    //m_tic.set_starting_speed(2000000);
                     m_tic.exit_safe_start();
                     m_tic.wait_for_device_ready();
                     bn_Conect.Text = "Disconect";
@@ -58,6 +59,7 @@ namespace WindowsFormsApplication3
                 buttonHome.Enabled = m_conected;
                 checkBoxJogLeft.Enabled = m_conected;
                 checkBoxJogRigth.Enabled = m_conected;
+                buttonEnergize.Enabled = m_conected;
             }
             catch (Exception ex)
             {
@@ -198,5 +200,20 @@ namespace WindowsFormsApplication3
 
         }
 
+        private void buttonEnergize_Click(object sender, EventArgs e)
+        {
+            if (m_tic.status_vars.energized)
+            {
+                m_tic.deenergize();
+                buttonEnergize.Text="ENERGIZE";
+            }
+            else
+            {
+                m_tic.clear_driver_error();
+                m_tic.energize();
+                m_tic.exit_safe_start();
+                buttonEnergize.Text = "DEENERGIZE";
+            }
+        }
     }
 }
