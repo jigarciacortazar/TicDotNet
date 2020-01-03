@@ -31,7 +31,7 @@ namespace WindowsFormsApplication3
             {
                 if (!m_conected)
                 {
-                    m_conected = m_tic.open(tic.PRODUCT_ID.T249);
+                    m_conected = m_tic.open(tic.PRODUCT_ID.T36V4);
                     m_tic.reinitialize();
 //                    m_tic.reset();
                     m_tic.energize();
@@ -214,6 +214,11 @@ namespace WindowsFormsApplication3
                 m_tic.exit_safe_start();
                 buttonEnergize.Text = "DEENERGIZE";
             }
+        }
+
+        private void RESET_POS_Click(object sender, EventArgs e)
+        {
+            m_tic.halt_and_set_position(0);
         }
     }
 }

@@ -32,6 +32,7 @@ class tic {
     const int TIC_PRODUCT_T500 = 3;
     const int TIC_PRODUCT_N825 = 4;
     const int TIC_PRODUCT_T249 = 5;
+    const int TIC_PRODUCT_36V4 = 6;
     const int USB_REQUEST_GET_DESCRIPTOR = 6;
     const int USB_DESCRIPTOR_TYPE_STRING = 3;
     const int TIC_VENDOR_ID = 8187;
@@ -303,8 +304,9 @@ class tic {
         T500 = 189,
         N825 = 0x00C3,
         T249 = 0x00C9,
+        T36V4 = 0x00CB,
     }
-public enum ERRORS
+    public enum ERRORS
     {
         INTENTIONALLY_DEENERGIZED = 0,
         MOTOR_DRIVER_ERROR = 1,
@@ -368,7 +370,7 @@ public enum ERRORS
         init_defaults();
         try
         {
-            UsbDeviceFinder MyUsbFinder = new UsbDeviceFinder(TIC_VENDOR_ID, (int)prod_id);
+            UsbDeviceFinder MyUsbFinder = new UsbDeviceFinder(TIC_VENDOR_ID, (int)prod_id,serial);
 
             // Find and open the usb device.
             MyUsbDevice = UsbDevice.OpenUsbDevice(MyUsbFinder);

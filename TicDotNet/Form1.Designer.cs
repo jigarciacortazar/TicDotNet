@@ -51,6 +51,7 @@
             this.checkBoxJogLeft = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonEnergize = new System.Windows.Forms.Button();
+            this.RESET_POS = new System.Windows.Forms.Button();
             this.groupBoxGOTO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPosition)).BeginInit();
@@ -186,10 +187,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.RESET_POS);
             this.groupBox2.Controls.Add(this.labelPosition);
             this.groupBox2.Location = new System.Drawing.Point(214, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(95, 48);
+            this.groupBox2.Size = new System.Drawing.Size(180, 48);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Position";
@@ -300,6 +302,16 @@
             this.buttonEnergize.UseVisualStyleBackColor = true;
             this.buttonEnergize.Click += new System.EventHandler(this.buttonEnergize_Click);
             // 
+            // RESET_POS
+            // 
+            this.RESET_POS.Location = new System.Drawing.Point(80, 19);
+            this.RESET_POS.Name = "RESET_POS";
+            this.RESET_POS.Size = new System.Drawing.Size(94, 23);
+            this.RESET_POS.TabIndex = 2;
+            this.RESET_POS.Text = "RESET";
+            this.RESET_POS.UseVisualStyleBackColor = true;
+            this.RESET_POS.Click += new System.EventHandler(this.RESET_POS_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +367,7 @@
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label labelVars;
         private System.Windows.Forms.Button buttonEnergize;
+        private System.Windows.Forms.Button RESET_POS;
     }
 }
 
